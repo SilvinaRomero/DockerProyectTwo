@@ -21,7 +21,7 @@ def get_bd():
 
 def consulta(primera):
     # son 42 paginas
-    paginador = [39,40,41,42,43,44]
+    paginador = [1,2]
     url = 'https://www.cnmv.es/Portal/Consultas/MostrarListados.aspx?id=18&page='
     # para cada pagina
     # for i in range(paginador):
