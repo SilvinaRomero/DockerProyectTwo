@@ -27,7 +27,7 @@ Cuando se pone en marcha la primera vez se crea la base de datos y se guarda
 la información, el mensaje de inicio indica de ello
 
 Debido a la cantidad de información el en el código se han esblecido las páginas 1 y 2
-porque ha parecido suficiente para el ejercicio.
+porque me ha parecido suficiente para el ejercicio.
 
 El botón para actualizar los datos realiza una comparación entre los datos de la
 web y los datos almacenados en la base de datos, si hubieran registros nuevos los  
