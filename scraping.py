@@ -63,9 +63,10 @@ def consulta(primera):
                 registro = collec.find_one({"numero de registro": {"$eq": dato['numero de registro']}})
 
                 """Dejo comnentada esta parte, porque no logre comprobar si funcionaba,
-                la idea es comparar si los datos de array datos es diferente al mismo documento que proviene de la bd,
-                en tal caso se comprueba si el campo que queeremos añadir ya existe, si es asi, se debe hacer un
-                replace_one, si no un update_one al documento"""
+                la idea es comparar si los datos del array datos (web) es diferente al mismo documento que proviene de la bd,
+                en tal caso se comprueba si el campo que queremos añadir ya existe, si es asi, se debe hacer un
+                replace_one o un update_one al documento dentro del campo history de los datos guardados, y actualizar los
+                volores correspondientes con la nueva información"""
 
                 # hoy =  datetime.now()
                 # # CAMBIOS EN FECHA DE FOLLETO
