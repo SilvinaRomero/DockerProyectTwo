@@ -1,9 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
-# from bson import ObjectId
-
-
 from datetime import datetime
 
 datos = []
@@ -21,9 +18,10 @@ def get_bd():
 
 def consulta(primera):
     # son 42 paginas
-    paginador = [1,2]
+    # paginador = 43
+    paginador = [1,2,3,4,5,6]
     url = 'https://www.cnmv.es/Portal/Consultas/MostrarListados.aspx?id=18&page='
-    # para cada pagina
+
     # for i in range(paginador):
     for i in paginador:
         try:
@@ -41,9 +39,8 @@ def consulta(primera):
                     url_sicav = node.find("a")['href']
                     reg = extraccion(url_sicav, node)
                     datos.append(reg)
-
-                print("\n FIN DE LOS DATOS\n")
             else:
+                # si no encuentra la clase salgo del bucle
                 break
         except requests.exceptions.HTTPError as e:
             print("\nERROR EN PETICION => " + url)
@@ -62,7 +59,7 @@ def consulta(primera):
             if collec.find_one({"numero de registro": {"$eq": dato['numero de registro']}}):
                 registro = collec.find_one({"numero de registro": {"$eq": dato['numero de registro']}})
 
-                """Dejo comnentada esta parte, porque no logre comprobar si funcionaba,
+                """Dejo comnentada esta parte, porque no logre comprobar si funcionaba correctamente,
                 la idea es comparar si los datos del array datos (web) es diferente al mismo documento que proviene de la bd,
                 en tal caso se comprueba si el campo que queremos añadir ya existe, si es asi, se debe hacer un
                 replace_one o un update_one al documento dentro del campo history de los datos guardados, y actualizar los
@@ -80,31 +77,6 @@ def consulta(primera):
                 #     registro.update(
                 #         {"fecha ultimo folleto": {"$set": dato['fecha ultimo folleto']}})
 
-                # # CAMBIOS EN DOMICILIO
-                # if registro['domicilio'] != dato['domicilio']:
-                #     registro.update(
-                #         {"historial": {"$set": {"domicilio anterior": {"$set": registro['domicilio']}}}})
-                #     registro.update(
-                #         {"historial": {"$set": {"fecha de cambio de domicilio": {"$set": hoy}}}})
-                #     registro.update({"domicilio": {"$set": dato['domicilio']}})
-
-                # # CAMBIOS EN CAPITALES INICIALES
-                # if registro['capital inicial'] != dato['capital inicial']:
-                #     registro.update({"historial": {"$set": {"capital inicial anterior": {
-                #                     "$set": registro['capital inicial']}}}})
-                #     registro.update({"historial": {
-                #                     "$set": {"fecha de cambio de capital inicial": {"$set": hoy}}}})
-                #     registro.update(
-                #         {"capital inicial": {"$set": dato['capital inicial']}})
-
-                # # CAMBIOS EN CAPITALES MAXIMO
-                # if registro['capital maximo estatuario'] != dato['capital maximo estatuario']:
-                #     registro.update({"historial": {"$set": {"capital maximo estatuario anterior": {
-                #                     "$set": registro['capital maximo estatuario']}}}})
-                #     registro.update({"historial": {"$set": {
-                #                     "fecha de cambio de capital maximo estatuario": {"$set": hoy}}}})
-                #     registro.update({"capital maximo estatuario": {
-                #                     "$set": dato['capital maximo estatuario']}})
             else:
                 # si no encuentra el documento lo añade a la bd
                 collec.insert_one(dato)
