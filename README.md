@@ -15,7 +15,7 @@ Debe crear una carpeta dentro de la raiz del proyecto con el nombre mongo-volume
 El proyecto esta preparado para levantar dos contenedores de docker.
 
  Abra una terminal y ejecute:
-  -sudo docker-compose up
+  sudo docker-compose up
   
 Al hacer esto la aplicación ya esta en funcionamiento.
   
