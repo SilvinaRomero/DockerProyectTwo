@@ -26,12 +26,14 @@ Cuando se pone en marcha la primera vez se crea la base de datos,
 se recoge el contenido de las urls de las SICAVS (web) y se guarda 
 la información en la bd.
 Si no es la primera vez, se compara la información de la web con la 
-de la bse de datos.
+de la base de datos.
 
 
 Para acceder a la información por las apis utilizar los siguientes 
 dos curls:
+Listas todas las SICAV
 - curl --location 'http://localhost:5000/'
+Filtar SICAV por ISIN
 - curl --location 'localhost:5000/info?isin={{ISIN}}'
 
 # Salir
