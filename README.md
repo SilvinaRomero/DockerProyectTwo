@@ -21,7 +21,10 @@ Al hacer esto la aplicación ya esta en funcionamiento.
   
 # En marcha
 
-Acceda a la ruta a 'localhost:5000/' donde está expuesta la aplicación.
+Para acceder a la información por las apis utilizar los siguientes 
+dos curls:
+- 'localhost:5000/'
+- 'localhost:5000/info?isin={{ISIN}}'
 
 Cuando se pone en marcha la primera vez se crea la base de datos,
 se recoge el contenido de las urls de las SICAVS (web) y se guarda 
@@ -32,7 +35,7 @@ de la bse de datos.
 Debido a la cantidad de información el en el código he establecido las 6 primeras páginas 
 porque me ha parecido suficiente para el ejercicio.
 
-En la ruta 'localhost:5000/info?isin={{ISIN}} verá la información mas detallada
+En el segundo curl verá la información mas detallada
 de cada SICAV por su ISIN. 
 
 # Salir
