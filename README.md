@@ -31,8 +31,8 @@ de la bse de datos.
 
 Para acceder a la información por las apis utilizar los siguientes 
 dos curls:
-- 'localhost:5000/'
-- 'localhost:5000/info?isin={{ISIN}}'
+- curl --location 'http://localhost:5000/'
+- curl --location 'localhost:5000/info?isin={{ISIN}}'
 
 # Salir
 en la terminal donde se está ejecutando la aplicación presione CTRL+c
